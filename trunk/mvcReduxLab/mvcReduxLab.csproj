@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DE66AF28-921C-4014-BDD8-03F28F09ACE1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mvcReduxLab</RootNamespace>
+    <AssemblyName>mvcReduxLab</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployEncryptKey>只有在任何部署設定標示為安全時，才會使用加密密碼</DeployEncryptKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.3.0.0, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.3.0\lib\net45\FastMember.Signed.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.15.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.15\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.3.0.0\lib\netstandard2.0\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.3.0.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Workspaces.3.0.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Workspaces.Common.3.0.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.Futures.5.0.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="QRCoder, Version=1.3.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.5\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.AttributedModel.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Convention, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Convention.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Hosting, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Hosting.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Runtime, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Runtime.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.TypedParts.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.6.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>MyDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Activity.cs">
+      <DependentUpon>MyDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Base2Controller.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Code\JsonNetResult.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\BS4\BS4AreaRegistration.cs" />
+    <Compile Include="Areas\BS4\Controllers\ButtonsController.cs" />
+    <Compile Include="Areas\BS4\Controllers\GridController.cs" />
+    <Compile Include="Areas\BS4\Controllers\HScrollMenuController.cs" />
+    <Compile Include="Areas\BS4\Controllers\HTML5Controller.cs" />
+    <Compile Include="Areas\BS4\Controllers\ModalController.cs" />
+    <Compile Include="Areas\BS4\Controllers\NavsController.cs" />
+    <Compile Include="Areas\BS4\Controllers\TodoMVCController.cs" />
+    <Compile Include="Areas\BS4\Controllers\TypographyController.cs" />
+    <Compile Include="Areas\MVCLab\Controllers\HelloController.cs" />
+    <Compile Include="Areas\MVCLab\Controllers\ReportDemoController.cs" />
+    <Compile Include="Areas\MVCLab\MVCLabAreaRegistration.cs" />
+    <Compile Include="Areas\ReactLab\Controllers\DemoController.cs" />
+    <Compile Include="Areas\ReactLab\Controllers\HashRouterController.cs" />
+    <Compile Include="Areas\ReactLab\Controllers\HelloController.cs" />
+    <Compile Include="Areas\ReactLab\Controllers\QRCodeController.cs" />
+    <Compile Include="Areas\ReactLab\ReactLabAreaRegistration.cs" />
+    <Compile Include="Areas\ReduxLab\Controllers\AccountAppController.cs" />
+    <Compile Include="Areas\ReduxLab\Controllers\BranchController.cs" />
+    <Compile Include="Areas\ReduxLab\Controllers\Demo2Controller.cs" />
+    <Compile Include="Areas\ReduxLab\Controllers\ReduxHelloController.cs" />
+    <Compile Include="Areas\ReduxLab\ReduxLabAreaRegistration.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\CommonDataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValueController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Like.cs">
+      <DependentUpon>MyDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MyDatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyDatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyDatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Report1.aspx.cs">
+      <DependentUpon>Report1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\Report1.aspx.designer.cs">
+      <DependentUpon>Report1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportViewer.aspx.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\ReportViewer.aspx.designer.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportWrapper.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ViewModels\AccountInfoFormDataVM.cs" />
+    <Compile Include="ViewModels\ErrorMessageVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MyDatabase.mdf" />
+    <Content Include="App_Data\MyDatabase_log.ldf">
+      <DependentUpon>MyDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\kym-sidebar-modal.css" />
+    <Content Include="Content\kym-sidebar.css" />
+    <Content Include="Content\react-radio-1.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\sweetalert2\dist\sweetalert2.all.js" />
+    <Content Include="Content\sweetalert2\dist\sweetalert2.all.min.js" />
+    <Content Include="Content\sweetalert2\dist\sweetalert2.css" />
+    <Content Include="Content\sweetalert2\dist\sweetalert2.js" />
+    <Content Include="Content\sweetalert2\dist\sweetalert2.min.css" />
+    <Content Include="Content\sweetalert2\dist\sweetalert2.min.js" />
+    <Content Include="Content\sweetalert2\src\constants.js" />
+    <Content Include="Content\sweetalert2\src\enhancers\withNoNewKeyword.js" />
+    <Content Include="Content\sweetalert2\src\globalState.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\close.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\enable-disable-elements.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\getInput.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\hideLoading.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\progress-steps.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\show-reset-validation-error.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\update.js" />
+    <Content Include="Content\sweetalert2\src\instanceMethods\_main.js" />
+    <Content Include="Content\sweetalert2\src\privateMethods.js" />
+    <Content Include="Content\sweetalert2\src\privateProps.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods\argsToParams.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods\dom.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods\fire.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods\mixin.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods\queue.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods\showLoading.js" />
+    <Content Include="Content\sweetalert2\src\staticMethods\timer.js" />
+    <Content Include="Content\sweetalert2\src\SweetAlert.js" />
+    <Content Include="Content\sweetalert2\src\sweetalert2.js" />
+    <Content Include="Content\sweetalert2\src\utils\aria.js" />
+    <Content Include="Content\sweetalert2\src\utils\classes.js" />
+    <Content Include="Content\sweetalert2\src\utils\defaultInputValidators.js" />
+    <Content Include="Content\sweetalert2\src\utils\DismissReason.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\animationEndEvent.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\domUtils.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\getters.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\index.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\init.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\measureScrollbar.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\parseHtmlToContainer.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\renderers\index.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\renderers\renderActions.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\renderers\renderContent.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\renderers\renderIcon.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\renderers\renderImage.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\renderers\renderProgressSteps.js" />
+    <Content Include="Content\sweetalert2\src\utils\dom\renderers\renderTitle.js" />
+    <Content Include="Content\sweetalert2\src\utils\ieFix.js" />
+    <Content Include="Content\sweetalert2\src\utils\iosFix.js" />
+    <Content Include="Content\sweetalert2\src\utils\isNodeEnv.js" />
+    <Content Include="Content\sweetalert2\src\utils\openPopup.js" />
+    <Content Include="Content\sweetalert2\src\utils\params.js" />
+    <Content Include="Content\sweetalert2\src\utils\scrollbarFix.js" />
+    <Content Include="Content\sweetalert2\src\utils\setParameters.js" />
+    <Content Include="Content\sweetalert2\src\utils\Timer.js" />
+    <Content Include="Content\sweetalert2\src\utils\utils.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Code\ViewFunctions.cshtml" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_square.png" />
+    <Content Include="images\scb_stamp.png" />
+    <Content Include="images\scb_test_logo.png" />
+    <Content Include="images\scb_test_watermark.png" />
+    <Content Include="images\standard_chartered_logo_svg.svg" />
+    <Content Include="MyDatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>MyDatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MyDatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>MyDatabaseModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\Report1.aspx" />
+    <Content Include="Report\ReportViewer.aspx" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\sweetalert2\CHANGELOG.md" />
+    <Content Include="Content\sweetalert2\LICENSE" />
+    <Content Include="Content\sweetalert2\package.json" />
+    <Content Include="Content\sweetalert2\README.md" />
+    <Content Include="Content\sweetalert2\src\animations.scss" />
+    <Content Include="Content\sweetalert2\src\mixins.scss" />
+    <Content Include="Content\sweetalert2\src\sweetalert2.scss" />
+    <Content Include="Content\sweetalert2\src\toasts.scss" />
+    <Content Include="Content\sweetalert2\src\variables.scss" />
+    <Content Include="Areas\BS4\Views\web.config" />
+    <Content Include="Areas\BS4\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BS4\Views\Typography\Default.cshtml" />
+    <Content Include="Areas\BS4\Views\Buttons\Default.cshtml" />
+    <Content Include="Areas\ReactLab\Views\web.config" />
+    <Content Include="Areas\ReactLab\Views\Hello\Default.cshtml" />
+    <Content Include="Areas\ReactLab\Views\Demo\Default.cshtml" />
+    <Content Include="Areas\ReactLab\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ReduxLab\Views\web.config" />
+    <Content Include="Areas\ReduxLab\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ReduxLab\Views\Demo2\Default.cshtml" />
+    <Content Include="Areas\BS4\Views\Grid\Default.cshtml" />
+    <Content Include="Areas\BS4\Views\Modal\Default.cshtml" />
+    <Content Include="Areas\BS4\Views\Navs\Default.cshtml" />
+    <Content Include="Areas\ReduxLab\Views\AccountApp\AppForm.cshtml" />
+    <Content Include="Areas\BS4\Views\HTML5\Input.cshtml" />
+    <EntityDeploy Include="MyDatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyDatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="MyDatabaseModel.edmx.diagram">
+      <DependentUpon>MyDatabaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\ReduxLab\Views\ReduxHello\Default.cshtml" />
+    <Content Include="Areas\BS4\Views\TodoMVC\Default.cshtml" />
+    <Content Include="Areas\BS4\Views\HScrollMenu\Default.cshtml" />
+    <Content Include="Areas\BS4\Views\HScrollMenu\Simple.cshtml" />
+    <Content Include="Areas\BS4\Views\HScrollMenu\Demo.cshtml" />
+    <Content Include="Areas\ReactLab\Views\HashRouter\Default.cshtml" />
+    <Content Include="Areas\MVCLab\Views\web.config" />
+    <Content Include="Areas\MVCLab\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\MVCLab\Views\Hello\Index.cshtml" />
+    <Content Include="Areas\MVCLab\Views\ReportDemo\Index.cshtml" />
+    <Content Include="Areas\MVCLab\Views\ReportDemo\StateArea.cshtml" />
+    <Content Include="Areas\ReactLab\Views\QRCode\Default.cshtml" />
+    <Content Include="Areas\ReactLab\Views\QRCode\ScanQrCode.cshtml" />
+    <Content Include="Models\MyDataSet.xsc">
+      <DependentUpon>MyDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\ReduxLab\Views\Branch\Default.cshtml" />
+    <None Include="Models\MyDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Models\MyDataSet.xss">
+      <DependentUpon>MyDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Report\ReportDataSet.xsc">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\ReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\ReportDataSet.xss">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\React\CommonFF\actionBase.js" />
+    <Content Include="Scripts\React\CommonFF\actions.js" />
+    <Content Include="Scripts\React\CommonFF\apiClient.js" />
+    <Content Include="Scripts\React\CommonFF\AppHelper.js" />
+    <Content Include="Scripts\React\CommonFF\appHelperReducer.js" />
+    <Content Include="Scripts\React\CommonFF\FormView1.js" />
+    <Content Include="Scripts\React\Common\FilterSelect.js" />
+    <Content Include="Scripts\React\Common\FilterSelectPro.js" />
+    <Content Include="Scripts\React\CommonFF\formView1Reducer.js" />
+    <Content Include="Scripts\React\CommonMA\FormInputFields\TextField.js" />
+    <Content Include="Scripts\React\Common\CheckWidget2-1.css" />
+    <Content Include="Scripts\React\Common\CheckWidget2-1.js" />
+    <Content Include="Scripts\React\Common\CommonUtilities.js" />
+    <Content Include="Scripts\React\Common\TitleWidget.js" />
+    <Content Include="Scripts\React\ReactLab\Demo\app.js" />
+    <Content Include="Scripts\React\ReactLab\Demo\Counter.js" />
+    <Content Include="Scripts\React\ReactLab\Demo\InputMirror.js" />
+    <Content Include="Scripts\React\ReactLab\Demo\Lister.js" />
+    <Content Include="Scripts\React\ReactLab\Demo\MyInput.js" />
+    <Content Include="Scripts\React\ReactLab\Demo\RepoSearch.js" />
+    <Content Include="Scripts\React\ReactLab\Demo\widgets\TitleWidget.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\app.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\AppIndex.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\reducers\RescheduleAnnounceReducer.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\reducers\ScheduleInqueryReducer.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\reducers\store.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\reducers\SuspendAnnounceReducer.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\reducers\TodayScheduleReducer.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\reducers\WeeklyScheduleReducer.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\AppForm.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\DataInfo.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\DataLister.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\widgets\DataInfoView1.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\widgets\DataInfoView2.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\widgets\DataInfoView3.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\widgets\DataInfoView4.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\widgets\DataInfoView5.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\RescheduleAnnounce\widgets\DataInfoView6.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\apiClient.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\AppForm.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\DataInfo.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\DataLister.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\DataSearch.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\reducers\ScheduleInquerycmmandBarReduder.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\widgets\DataInfoView1.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\ScheduleInquery\widgets\DataInfoView2.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\AppForm.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\DataInfo.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\DataLister.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\widgets\DataInfoView1.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\widgets\DataInfoView2.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\widgets\DataInfoView3.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\widgets\DataInfoView4.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\widgets\DataInfoView5.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\SuspendAnnounce\widgets\DataInfoView6.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\apiClient.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\AppForm.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\DataInfo.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\DataLister.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\DataSearch.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\reducers\ScheduleInquerycmmandBarReduder.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\widgets\DataInfoView1.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\TodaySchedule\widgets\DataInfoView2.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\apiClient.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\AppForm.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\DataInfo.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\DataLister.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\DataSearch.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\reducers\ScheduleInquerycmmandBarReduder.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\widgets\DataInfoView1.js" />
+    <Content Include="Scripts\React\ReactLab\HashRouter\WeeklySchedule\widgets\DataInfoView2.js" />
+    <Content Include="Scripts\React\ReactLab\Hello\app.js" />
+    <Content Include="Scripts\React\ReactLab\QRCode\app.js" />
+    <Content Include="Scripts\React\ReactLab\QRCode\flowText.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\apiClient.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\FormViewAccount.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\app.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\AppForm.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\FormViewUser.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\reducers\userReducer.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\reducers\accountReducer.js" />
+    <Content Include="Scripts\React\ReduxLab\AccountApp\reducers\store.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\app.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\AppForm.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\Counter.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\Hello2.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\Lister.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\reducers\helloReducer.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\reducers\counterReducer.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\reducers\listerReducer.js" />
+    <Content Include="Scripts\React\ReduxLab\Demo2\reducers\store.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\app.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\AppForm.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\Hello2.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\InputMIrror.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\reducers\helloReducer.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\reducers\store.js" />
+    <Content Include="Scripts\React\ReduxLab\ReduxHello\app.js" />
+    <Content Include="Scripts\React\ReduxLab\ReduxHello\AppForm.js" />
+    <Content Include="Scripts\React\ReduxLab\ReduxHello\InputMIrror.js" />
+    <Content Include="Scripts\React\ReduxLab\ReduxHello\Hello2.js" />
+    <Content Include="Scripts\React\ReduxLab\ReduxHello\reducers\helloReducer.js" />
+    <Content Include="Scripts\React\ReduxLab\ReduxHello\reducers\store.js" />
+    <Content Include="Scripts\React\webpack.config.js">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>webpack.config.tt</DependentUpon>
+    </Content>
+    <Content Include="Scripts\React\webpack.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>webpack.config.js</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ThirdParty\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="ThirdParty\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\React\package.json" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_ReactAppInit.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Scripts\React\.flowconfig" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\BS4\Models\" />
+    <Folder Include="Areas\MVCLab\Models\" />
+    <Folder Include="Areas\ReactLab\Models\" />
+    <Folder Include="Areas\ReduxLab\Models\" />
+    <Folder Include="Scripts\bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\sweetalert2\sweetalert2.d.ts" />
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\rdlc\OverReport.rdlc" />
+    <EmbeddedResource Include="Report\rdlc\Report1.rdlc" />
+    <EmbeddedResource Include="Report\rdlc\SampleTicket2.rdlc" />
+    <EmbeddedResource Include="Report\rdlc\SampleTicket.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.Dev|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties Scripts_4React_4package_1json__JSONSchema="http://json.schemastore.org/prettierrc" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 封裝。請啟用 NuGet 封裝還原，以下載該封裝。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+    TempData["Title"] = "Scan QR Code with Instascan";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@TempData["Title"]</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- 載入instascan.min.js -->
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+</head>
+
+<body>
+    <h1>@TempData["Title"]</h1>
+    <h2 style="color:red">需在HTTPS下才有效用。<br />經測試只有Andriod手機才有效用，iOS無效用。(囧)</h2>
+    <!-- 官網文件 https://github.com/schmich/instascan -->
+    <!-- 官網demo https://schmich.github.io/instascan/-->
+
+    <p id="alert" style="color:red"></p>
+    <p id="logmsg" style="color:blue">log</p>
+
+    <video id="preview"></video>
+    <!-- 詢問是否允許開啟相機後，會顯示在這個元素裡 -->
+    <!-- ---------- -->
+    <!-- 以下程式面 -->
+    <script type="text/javascript">
+        let scanner = new Instascan.Scanner({
+            video: document.getElementById('preview')
+        });
+
+        //設定偵聽掃描事件，若有偵聽到印出內容。
+        scanner.addListener('scan', function (content) {
+            console.log(content);
+            $('#logmsg').html($('#logmsg').html() + '<br/>' + content);
+            alert(content);
+        });
+
+        Instascan.Camera.getCameras().then(function (cameras) {
+
+            $('#logmsg').html($('#logmsg').html() + '<br/>' + 'cameras.length:' + cameras.length);
+
+            //取得設備的相機數目
+            if (cameras.length > 0) {
+                ///若設備相機數目大於0 則先開啟第0個相機(程式的世界是從第零個開始的)
+                scanner.start(cameras[1]);
+            } else {
+                $('#alert').text('No cameras found.');
+                console.error('No cameras found.');
+            }
+        }).catch(function (e) {
+            $('#alert').text(e);
+            console.error(e);
+        });
+    </script>
+</body>
+</html>
