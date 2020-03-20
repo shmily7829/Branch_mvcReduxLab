@@ -310,10 +310,37 @@
     <Compile Include="Areas\ReduxLab\Controllers\Demo2Controller.cs" />
     <Compile Include="Areas\ReduxLab\Controllers\ReduxHelloController.cs" />
     <Compile Include="Areas\ReduxLab\ReduxLabAreaRegistration.cs" />
+    <Compile Include="Branch.cs">
+      <DependentUpon>BranchModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BranchModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BranchModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BranchModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CHANNEL.cs">
+      <DependentUpon>BranchModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Channel_VS_Product.cs">
+      <DependentUpon>BranchModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\CommonDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValueController.cs" />
+    <Compile Include="ExpLog.cs">
+      <DependentUpon>BranchModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -340,11 +367,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyDatabaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ProductV2.cs">
+      <DependentUpon>BranchModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Remittance_Account.cs">
+      <DependentUpon>BranchModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Report\Report1.aspx.cs">
       <DependentUpon>Report1.aspx</DependentUpon>
@@ -369,11 +402,24 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewModels\AccountInfoFormDataVM.cs" />
     <Compile Include="ViewModels\ErrorMessageVM.cs" />
+    <Compile Include="ZIP_CODE.cs">
+      <DependentUpon>BranchModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MyDatabase.mdf" />
     <Content Include="App_Data\MyDatabase_log.ldf">
       <DependentUpon>MyDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="BranchModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BranchModel.edmx</DependentUpon>
+      <LastGenOutput>BranchModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BranchModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BranchModel.edmx</DependentUpon>
+      <LastGenOutput>BranchModel.cs</LastGenOutput>
     </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -528,6 +574,13 @@
       <DependentUpon>MyDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Areas\ReduxLab\Views\Branch\Default.cshtml" />
+    <EntityDeploy Include="BranchModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BranchModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="BranchModel.edmx.diagram">
+      <DependentUpon>BranchModel.edmx</DependentUpon>
+    </Content>
     <None Include="Models\MyDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -656,6 +709,10 @@
     <Content Include="Scripts\React\ReduxLab\AccountApp\reducers\userReducer.js" />
     <Content Include="Scripts\React\ReduxLab\AccountApp\reducers\accountReducer.js" />
     <Content Include="Scripts\React\ReduxLab\AccountApp\reducers\store.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\apiClient.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\List.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\Query.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\reducers\branchReducer.js" />
     <Content Include="Scripts\React\ReduxLab\Demo2\app.js" />
     <Content Include="Scripts\React\ReduxLab\Demo2\AppForm.js" />
     <Content Include="Scripts\React\ReduxLab\Demo2\Counter.js" />
@@ -667,12 +724,12 @@
     <Content Include="Scripts\React\ReduxLab\Demo2\reducers\store.js" />
     <Content Include="Scripts\React\ReduxLab\Branch\app.js" />
     <Content Include="Scripts\React\ReduxLab\Branch\AppForm.js" />
-    <Content Include="Scripts\React\ReduxLab\Branch\Hello2.js" />
-    <Content Include="Scripts\React\ReduxLab\Branch\InputMIrror.js" />
     <Content Include="Scripts\React\ReduxLab\Branch\reducers\helloReducer.js" />
     <Content Include="Scripts\React\ReduxLab\Branch\reducers\store.js" />
     <Content Include="Scripts\React\ReduxLab\ReduxHello\app.js" />
     <Content Include="Scripts\React\ReduxLab\ReduxHello\AppForm.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\Hello2.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\InputMIrror.js" />
     <Content Include="Scripts\React\ReduxLab\ReduxHello\InputMIrror.js" />
     <Content Include="Scripts\React\ReduxLab\ReduxHello\Hello2.js" />
     <Content Include="Scripts\React\ReduxLab\ReduxHello\reducers\helloReducer.js" />
