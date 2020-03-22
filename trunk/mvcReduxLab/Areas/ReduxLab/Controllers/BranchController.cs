@@ -25,7 +25,7 @@ namespace mvcReduxLab.Areas.ReduxLab.Controllers
 
                 //string connString = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["Branch"].ConnectionString;
 
-                using (ReactPracticeEntities ctx = new ReactPracticeEntities())
+                ReactPracticeEntities ctx = new ReactPracticeEntities();
                 {
     
                     var dataList = ctx.Database.SqlQuery<Branch>("select Top 10 * from Branch").ToList();

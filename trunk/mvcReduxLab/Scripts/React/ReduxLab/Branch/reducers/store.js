@@ -7,7 +7,7 @@ import branchInfo from './branchReducer.js'
 const rootReducer = combineReducers({
     appInfo,
     helloInfo,
-    branchInfo
+    branchInfo //儲存的資料取名為branchInfo
 })
 
 const store = createStore(rootReducer,

@@ -7,10 +7,10 @@ import actions, { Ks } from 'CommonFF/actions.js' //default , 其他元件
 class List extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
 
-        }   
+        }
     }
 
     render() {
@@ -18,14 +18,25 @@ class List extends Component {
         console.log("branchInfo", { branchInfo })
         return (
             <Container >
-                <h2>§ 資料清單</h2>    
-                <ul >
-                    {branchInfo.dataList.map((item, index) =>
-                        <li key={index}>
-                            {index} {item.Branch_ID}&nbsp;
-                        </li>
+                <h2>§ 資料清單</h2>
+                <table>
+                    <thead className="mt-2 bg-secondary text-white rounded">
+                        <tr>
+                            <th>Branch_ID</th>
+                            <th>Branch_Name</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {branchInfo.dataList.map((item, index) =>
+                            <tr key={`${item}`} style={{ border: '1px solid #000000', padding: '10px' }}>
+                                <td>{item.Branch_ID}</td>
+                                <td>{item.Branch_Name}</td>
+                                <td>{item.Address}</td>
+                            </tr>
                         )}
-                </ul>
+                    </tbody>
+                </table>
             </Container>
         )
     }

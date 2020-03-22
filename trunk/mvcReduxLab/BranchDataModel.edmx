@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BranchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Channel_ID" />
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="Channel_ID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Branch_Type" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Branch_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Branch_Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Supervisor" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address_City" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Address_Dist" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Address_ZIP_code" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Payment_Type" Type="nvarchar" MaxLength="1" />
+          <Property Name="Payment_Type_Desc" Type="nvarchar" MaxLength="30" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Payment_Type_Bank_Account_Bank" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Payment_Type_Bank_Account_Post" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Payment_Type_Bank_Account_ATM" Type="nvarchar" MaxLength="2000" />
+          <Property Name="MessagePay_Limit" Type="nvarchar" MaxLength="1" />
+          <Property Name="Business_Area" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CHANNEL">
+          <Key>
+            <PropertyRef Name="Channel_ID" />
+          </Key>
+          <Property Name="Channel_ID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Channel_Type" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="BAN_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Company_Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address_city" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Address_dist" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Address_Post_Code" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Address_Address" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Meridian_policy_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Producer_Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Producer_Date" Type="date" Nullable="false" />
+          <Property Name="Contact_Note" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contact_Note_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Commission" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contact_Commission_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Commission_Date" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Payment_Type" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Payment_Type_Desc" Type="nvarchar" MaxLength="30" />
+          <Property Name="Contract_Date" Type="date" Nullable="false" />
+          <Property Name="Contact1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact1_Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact1_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Contact2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact2_Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Contact2_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Contact3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact3_Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Contact3_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Effect_Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Pac_Line" Type="varchar" MaxLength="10" />
+          <Property Name="Product_Code" Type="varchar" MaxLength="10" />
+          <Property Name="Business_SuperVisior" Type="nvarchar" MaxLength="60" />
+          <Property Name="Title" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="Contact_Commission_Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Contact_Commission_Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Contact_Commission_City" Type="nvarchar" MaxLength="3" />
+          <Property Name="Contact_Commission_Dict" Type="nvarchar" MaxLength="4" />
+          <Property Name="Contact_Commission_PostCode" Type="char" MaxLength="3" />
+          <Property Name="Contact_Commission_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact_Note_Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Contact_Note_Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Contact_Note_City" Type="nchar" MaxLength="3" />
+          <Property Name="Contact_Note_Dict" Type="nchar" MaxLength="4" />
+          <Property Name="Contact_Note_PostCode" Type="char" MaxLength="3" />
+          <Property Name="Contact_Note_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact1_Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Contact1_City" Type="nvarchar" MaxLength="3" />
+          <Property Name="Contact1_Dict" Type="nvarchar" MaxLength="4" />
+          <Property Name="Contact1_PostCode" Type="char" MaxLength="3" />
+          <Property Name="Contact1_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact2_Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Contact2_City" Type="nvarchar" MaxLength="3" />
+          <Property Name="Contact2_Dict" Type="nvarchar" MaxLength="4" />
+          <Property Name="Contact2_PostCode" Type="char" MaxLength="3" />
+          <Property Name="Contact2_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact3_Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Contact3_City" Type="nvarchar" MaxLength="3" />
+          <Property Name="Contact3_Dict" Type="nvarchar" MaxLength="4" />
+          <Property Name="Contact3_PostCode" Type="char" MaxLength="3" />
+          <Property Name="Contact3_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnLine_Status" Type="char" MaxLength="1" />
+          <Property Name="OffLine_Status" Type="char" MaxLength="1" />
+          <Property Name="Contract_Status" Type="char" MaxLength="1" />
+          <Property Name="ChangePassword_Limit" Type="nvarchar" MaxLength="1" />
+          <Property Name="Settlement_Date" Type="int" />
+          <Property Name="Time_Limit" Type="nvarchar" MaxLength="1" />
+          <Property Name="MessagePay_Limit" Type="nvarchar" MaxLength="1" />
+          <Property Name="Search_Limit" Type="nvarchar" MaxLength="1" />
+          <Property Name="Group" Type="nvarchar" MaxLength="10" />
+          <Property Name="Business_Area" Type="nvarchar" MaxLength="20" />
+          <Property Name="Limit_Hour" Type="int" />
+          <Property Name="Payment_Type_Bank_Account_Bank" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Payment_Type_Bank_Account_Post" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Payment_Type_Bank_Account_ATM" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Notification_Letter" Type="nchar" MaxLength="1" />
+          <Property Name="BigPolicy_Active" Type="varchar" MaxLength="1" />
+          <Property Name="Meridian_policy_NO_B" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Channel_VS_Product">
+          <Key>
+            <PropertyRef Name="Channel_ID" />
+          </Key>
+          <Property Name="Channel_ID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Product_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="ExpLog">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ErrMsg" Type="nvarchar(max)" />
+          <Property Name="UDate" Type="datetime" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ReactPractice.dbo.ProductV2' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="ProductV2">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+            <PropertyRef Name="Ins1" />
+            <PropertyRef Name="Ins2" />
+            <PropertyRef Name="Ins3" />
+            <PropertyRef Name="TI1" />
+            <PropertyRef Name="TI2" />
+            <PropertyRef Name="TI3" />
+          </Key>
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ins1" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Ins2" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Ins3" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="TI1" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="TI2" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="TI3" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ins1TI1" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins1TI2" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins1TI3" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins2TI1" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins2TI2" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins2TI3" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins3TI1" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins3TI2" Type="nvarchar" MaxLength="1" />
+          <Property Name="Ins3TI3" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ReactPractice.dbo.Remittance_Account' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="Remittance_Account">
+          <Key>
+            <PropertyRef Name="Remittance_Account_ID" />
+            <PropertyRef Name="Bank_Name" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Remittance_Account_ID" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Bank_Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ZIP_CODE">
+          <Key>
+            <PropertyRef Name="CITY" />
+            <PropertyRef Name="DIST" />
+          </Key>
+          <Property Name="ZIP_CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CITY" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DIST" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BranchModelStoreContainer">
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHANNEL" EntityType="Self.CHANNEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Channel_VS_Product" EntityType="Self.Channel_VS_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpLog" EntityType="Self.ExpLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZIP_CODE" EntityType="Self.ZIP_CODE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductV2" EntityType="Self.ProductV2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ProductV2].[ProductCode] AS [ProductCode], 
+    [ProductV2].[ProductName] AS [ProductName], 
+    [ProductV2].[Ins1] AS [Ins1], 
+    [ProductV2].[Ins2] AS [Ins2], 
+    [ProductV2].[Ins3] AS [Ins3], 
+    [ProductV2].[TI1] AS [TI1], 
+    [ProductV2].[TI2] AS [TI2], 
+    [ProductV2].[TI3] AS [TI3], 
+    [ProductV2].[Remark] AS [Remark], 
+    [ProductV2].[Ins1TI1] AS [Ins1TI1], 
+    [ProductV2].[Ins1TI2] AS [Ins1TI2], 
+    [ProductV2].[Ins1TI3] AS [Ins1TI3], 
+    [ProductV2].[Ins2TI1] AS [Ins2TI1], 
+    [ProductV2].[Ins2TI2] AS [Ins2TI2], 
+    [ProductV2].[Ins2TI3] AS [Ins2TI3], 
+    [ProductV2].[Ins3TI1] AS [Ins3TI1], 
+    [ProductV2].[Ins3TI2] AS [Ins3TI2], 
+    [ProductV2].[Ins3TI3] AS [Ins3TI3]
+    FROM [dbo].[ProductV2] AS [ProductV2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Remittance_Account" EntityType="Self.Remittance_Account" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Remittance_Account].[Remittance_Account_ID] AS [Remittance_Account_ID], 
+    [Remittance_Account].[Bank_Name] AS [Bank_Name], 
+    [Remittance_Account].[Account] AS [Account]
+    FROM [dbo].[Remittance_Account] AS [Remittance_Account]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BranchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Channel_ID" />
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="Channel_ID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Branch_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Branch_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Branch_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Supervisor" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address_City" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address_Dist" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address_ZIP_code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Payment_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Type_Desc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Modifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Payment_Type_Bank_Account_Bank" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Type_Bank_Account_Post" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Type_Bank_Account_ATM" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="MessagePay_Limit" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Business_Area" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CHANNEL">
+          <Key>
+            <PropertyRef Name="Channel_ID" />
+          </Key>
+          <Property Name="Channel_ID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Channel_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BAN_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address_city" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address_dist" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address_Post_Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address_Address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Meridian_policy_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Producer_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Producer_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Contact_Note" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact_Note_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Commission" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact_Commission_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Commission_Date" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Payment_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Payment_Type_Desc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Contract_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Contact1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact1_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contact1_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact2_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact3_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact3_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Modifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Effect_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Pac_Line" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Product_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Business_SuperVisior" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Commission_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Commission_Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Commission_City" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Commission_Dict" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Commission_PostCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Contact_Commission_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Note_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Note_Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Note_City" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Contact_Note_Dict" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="Contact_Note_PostCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Contact_Note_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact1_Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact1_City" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Contact1_Dict" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Contact1_PostCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Contact1_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2_Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact2_City" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2_Dict" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2_PostCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Contact2_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact3_Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact3_City" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Contact3_Dict" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Contact3_PostCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Contact3_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnLine_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="OffLine_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Contract_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ChangePassword_Limit" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Settlement_Date" Type="Int32" />
+          <Property Name="Time_Limit" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="MessagePay_Limit" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Search_Limit" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Business_Area" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Limit_Hour" Type="Int32" />
+          <Property Name="Payment_Type_Bank_Account_Bank" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Type_Bank_Account_Post" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Type_Bank_Account_ATM" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Notification_Letter" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="BigPolicy_Active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Meridian_policy_NO_B" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Channel_VS_Product">
+          <Key>
+            <PropertyRef Name="Channel_ID" />
+          </Key>
+          <Property Name="Channel_ID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Product_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ExpLog">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ErrMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ZIP_CODE">
+          <Key>
+            <PropertyRef Name="CITY" />
+            <PropertyRef Name="DIST" />
+          </Key>
+          <Property Name="ZIP_CODE1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CITY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIST" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductV2">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+            <PropertyRef Name="Ins1" />
+            <PropertyRef Name="Ins2" />
+            <PropertyRef Name="Ins3" />
+            <PropertyRef Name="TI1" />
+            <PropertyRef Name="TI2" />
+            <PropertyRef Name="TI3" />
+          </Key>
+          <Property Name="ProductCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ins1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ins2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ins3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TI1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TI2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TI3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ins1TI1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins1TI2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins1TI3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins2TI1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins2TI2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins2TI3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins3TI1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins3TI2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Ins3TI3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Remittance_Account">
+          <Key>
+            <PropertyRef Name="Remittance_Account_ID" />
+            <PropertyRef Name="Bank_Name" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Remittance_Account_ID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bank_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BranchEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branch" EntityType="Self.Branch" />
+          <EntitySet Name="CHANNEL" EntityType="Self.CHANNEL" />
+          <EntitySet Name="Channel_VS_Product" EntityType="Self.Channel_VS_Product" />
+          <EntitySet Name="ExpLog" EntityType="Self.ExpLog" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="ZIP_CODE" EntityType="Self.ZIP_CODE" />
+          <EntitySet Name="ProductV2" EntityType="Self.ProductV2" />
+          <EntitySet Name="Remittance_Account" EntityType="Self.Remittance_Account" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BranchModelStoreContainer" CdmEntityContainer="BranchEntities">
+          <EntitySetMapping Name="Branch">
+            <EntityTypeMapping TypeName="BranchModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="Channel_ID" ColumnName="Channel_ID" />
+                <ScalarProperty Name="Branch_Type" ColumnName="Branch_Type" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Address_City" ColumnName="Address_City" />
+                <ScalarProperty Name="Address_Dist" ColumnName="Address_Dist" />
+                <ScalarProperty Name="Address_ZIP_code" ColumnName="Address_ZIP_code" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+                <ScalarProperty Name="Payment_Type_Desc" ColumnName="Payment_Type_Desc" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Payment_Type_Bank_Account_Bank" ColumnName="Payment_Type_Bank_Account_Bank" />
+                <ScalarProperty Name="Payment_Type_Bank_Account_Post" ColumnName="Payment_Type_Bank_Account_Post" />
+                <ScalarProperty Name="Payment_Type_Bank_Account_ATM" ColumnName="Payment_Type_Bank_Account_ATM" />
+                <ScalarProperty Name="MessagePay_Limit" ColumnName="MessagePay_Limit" />
+                <ScalarProperty Name="Business_Area" ColumnName="Business_Area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHANNEL">
+            <EntityTypeMapping TypeName="BranchModel.CHANNEL">
+              <MappingFragment StoreEntitySet="CHANNEL">
+                <ScalarProperty Name="Channel_ID" ColumnName="Channel_ID" />
+                <ScalarProperty Name="Channel_Type" ColumnName="Channel_Type" />
+                <ScalarProperty Name="BAN_NO" ColumnName="BAN_NO" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Company_Phone" ColumnName="Company_Phone" />
+                <ScalarProperty Name="Address_city" ColumnName="Address_city" />
+                <ScalarProperty Name="Address_dist" ColumnName="Address_dist" />
+                <ScalarProperty Name="Address_Post_Code" ColumnName="Address_Post_Code" />
+                <ScalarProperty Name="Address_Address" ColumnName="Address_Address" />
+                <ScalarProperty Name="Meridian_policy_NO" ColumnName="Meridian_policy_NO" />
+                <ScalarProperty Name="Producer_Code" ColumnName="Producer_Code" />
+                <ScalarProperty Name="Producer_Date" ColumnName="Producer_Date" />
+                <ScalarProperty Name="Contact_Note" ColumnName="Contact_Note" />
+                <ScalarProperty Name="Contact_Note_Email" ColumnName="Contact_Note_Email" />
+                <ScalarProperty Name="Contact_Commission" ColumnName="Contact_Commission" />
+                <ScalarProperty Name="Contact_Commission_Email" ColumnName="Contact_Commission_Email" />
+                <ScalarProperty Name="Commission_Date" ColumnName="Commission_Date" />
+                <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+                <ScalarProperty Name="Payment_Type_Desc" ColumnName="Payment_Type_Desc" />
+                <ScalarProperty Name="Contract_Date" ColumnName="Contract_Date" />
+                <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+                <ScalarProperty Name="Contact1_Phone" ColumnName="Contact1_Phone" />
+                <ScalarProperty Name="Contact1_Email" ColumnName="Contact1_Email" />
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Contact2_Phone" ColumnName="Contact2_Phone" />
+                <ScalarProperty Name="Contact2_Email" ColumnName="Contact2_Email" />
+                <ScalarProperty Name="Contact3" ColumnName="Contact3" />
+                <ScalarProperty Name="Contact3_Phone" ColumnName="Contact3_Phone" />
+                <ScalarProperty Name="Contact3_Email" ColumnName="Contact3_Email" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Effect_Type" ColumnName="Effect_Type" />
+                <ScalarProperty Name="Pac_Line" ColumnName="Pac_Line" />
+                <ScalarProperty Name="Product_Code" ColumnName="Product_Code" />
+                <ScalarProperty Name="Business_SuperVisior" ColumnName="Business_SuperVisior" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact_Commission_Phone" ColumnName="Contact_Commission_Phone" />
+                <ScalarProperty Name="Contact_Commission_Fax" ColumnName="Contact_Commission_Fax" />
+                <ScalarProperty Name="Contact_Commission_City" ColumnName="Contact_Commission_City" />
+                <ScalarProperty Name="Contact_Commission_Dict" ColumnName="Contact_Commission_Dict" />
+                <ScalarProperty Name="Contact_Commission_PostCode" ColumnName="Contact_Commission_PostCode" />
+                <ScalarProperty Name="Contact_Commission_Address" ColumnName="Contact_Commission_Address" />
+                <ScalarProperty Name="Contact_Note_Phone" ColumnName="Contact_Note_Phone" />
+                <ScalarProperty Name="Contact_Note_Fax" ColumnName="Contact_Note_Fax" />
+                <ScalarProperty Name="Contact_Note_City" ColumnName="Contact_Note_City" />
+                <ScalarProperty Name="Contact_Note_Dict" ColumnName="Contact_Note_Dict" />
+                <ScalarProperty Name="Contact_Note_PostCode" ColumnName="Contact_Note_PostCode" />
+                <ScalarProperty Name="Contact_Note_Address" ColumnName="Contact_Note_Address" />
+                <ScalarProperty Name="Contact1_Fax" ColumnName="Contact1_Fax" />
+                <ScalarProperty Name="Contact1_City" ColumnName="Contact1_City" />
+                <ScalarProperty Name="Contact1_Dict" ColumnName="Contact1_Dict" />
+                <ScalarProperty Name="Contact1_PostCode" ColumnName="Contact1_PostCode" />
+                <ScalarProperty Name="Contact1_Address" ColumnName="Contact1_Address" />
+                <ScalarProperty Name="Contact2_Fax" ColumnName="Contact2_Fax" />
+                <ScalarProperty Name="Contact2_City" ColumnName="Contact2_City" />
+                <ScalarProperty Name="Contact2_Dict" ColumnName="Contact2_Dict" />
+                <ScalarProperty Name="Contact2_PostCode" ColumnName="Contact2_PostCode" />
+                <ScalarProperty Name="Contact2_Address" ColumnName="Contact2_Address" />
+                <ScalarProperty Name="Contact3_Fax" ColumnName="Contact3_Fax" />
+                <ScalarProperty Name="Contact3_City" ColumnName="Contact3_City" />
+                <ScalarProperty Name="Contact3_Dict" ColumnName="Contact3_Dict" />
+                <ScalarProperty Name="Contact3_PostCode" ColumnName="Contact3_PostCode" />
+                <ScalarProperty Name="Contact3_Address" ColumnName="Contact3_Address" />
+                <ScalarProperty Name="OnLine_Status" ColumnName="OnLine_Status" />
+                <ScalarProperty Name="OffLine_Status" ColumnName="OffLine_Status" />
+                <ScalarProperty Name="Contract_Status" ColumnName="Contract_Status" />
+                <ScalarProperty Name="ChangePassword_Limit" ColumnName="ChangePassword_Limit" />
+                <ScalarProperty Name="Settlement_Date" ColumnName="Settlement_Date" />
+                <ScalarProperty Name="Time_Limit" ColumnName="Time_Limit" />
+                <ScalarProperty Name="MessagePay_Limit" ColumnName="MessagePay_Limit" />
+                <ScalarProperty Name="Search_Limit" ColumnName="Search_Limit" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Business_Area" ColumnName="Business_Area" />
+                <ScalarProperty Name="Limit_Hour" ColumnName="Limit_Hour" />
+                <ScalarProperty Name="Payment_Type_Bank_Account_Bank" ColumnName="Payment_Type_Bank_Account_Bank" />
+                <ScalarProperty Name="Payment_Type_Bank_Account_Post" ColumnName="Payment_Type_Bank_Account_Post" />
+                <ScalarProperty Name="Payment_Type_Bank_Account_ATM" ColumnName="Payment_Type_Bank_Account_ATM" />
+                <ScalarProperty Name="Notification_Letter" ColumnName="Notification_Letter" />
+                <ScalarProperty Name="BigPolicy_Active" ColumnName="BigPolicy_Active" />
+                <ScalarProperty Name="Meridian_policy_NO_B" ColumnName="Meridian_policy_NO_B" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Channel_VS_Product">
+            <EntityTypeMapping TypeName="BranchModel.Channel_VS_Product">
+              <MappingFragment StoreEntitySet="Channel_VS_Product">
+                <ScalarProperty Name="Channel_ID" ColumnName="Channel_ID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpLog">
+            <EntityTypeMapping TypeName="BranchModel.ExpLog">
+              <MappingFragment StoreEntitySet="ExpLog">
+                <ScalarProperty Name="SID" ColumnName="SID" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ErrMsg" ColumnName="ErrMsg" />
+                <ScalarProperty Name="UDate" ColumnName="UDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BranchModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZIP_CODE">
+            <EntityTypeMapping TypeName="BranchModel.ZIP_CODE">
+              <MappingFragment StoreEntitySet="ZIP_CODE">
+                <ScalarProperty Name="ZIP_CODE1" ColumnName="ZIP_CODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="DIST" ColumnName="DIST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductV2">
+            <EntityTypeMapping TypeName="BranchModel.ProductV2">
+              <MappingFragment StoreEntitySet="ProductV2">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Ins1" ColumnName="Ins1" />
+                <ScalarProperty Name="Ins2" ColumnName="Ins2" />
+                <ScalarProperty Name="Ins3" ColumnName="Ins3" />
+                <ScalarProperty Name="TI1" ColumnName="TI1" />
+                <ScalarProperty Name="TI2" ColumnName="TI2" />
+                <ScalarProperty Name="TI3" ColumnName="TI3" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Ins1TI1" ColumnName="Ins1TI1" />
+                <ScalarProperty Name="Ins1TI2" ColumnName="Ins1TI2" />
+                <ScalarProperty Name="Ins1TI3" ColumnName="Ins1TI3" />
+                <ScalarProperty Name="Ins2TI1" ColumnName="Ins2TI1" />
+                <ScalarProperty Name="Ins2TI2" ColumnName="Ins2TI2" />
+                <ScalarProperty Name="Ins2TI3" ColumnName="Ins2TI3" />
+                <ScalarProperty Name="Ins3TI1" ColumnName="Ins3TI1" />
+                <ScalarProperty Name="Ins3TI2" ColumnName="Ins3TI2" />
+                <ScalarProperty Name="Ins3TI3" ColumnName="Ins3TI3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Remittance_Account">
+            <EntityTypeMapping TypeName="BranchModel.Remittance_Account">
+              <MappingFragment StoreEntitySet="Remittance_Account">
+                <ScalarProperty Name="Remittance_Account_ID" ColumnName="Remittance_Account_ID" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

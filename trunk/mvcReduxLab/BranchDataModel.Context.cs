@@ -13,9 +13,9 @@ namespace mvcReduxLab
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ReactPracticeEntities : DbContext
+    public partial class BranchEntities : DbContext
     {
-        public ReactPracticeEntities()
+        public BranchEntities()
             : base("name=BranchEntities")
         {
         }
@@ -29,6 +29,7 @@ namespace mvcReduxLab
         public virtual DbSet<CHANNEL> CHANNEL { get; set; }
         public virtual DbSet<Channel_VS_Product> Channel_VS_Product { get; set; }
         public virtual DbSet<ExpLog> ExpLog { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<ZIP_CODE> ZIP_CODE { get; set; }
         public virtual DbSet<ProductV2> ProductV2 { get; set; }
         public virtual DbSet<Remittance_Account> Remittance_Account { get; set; }
