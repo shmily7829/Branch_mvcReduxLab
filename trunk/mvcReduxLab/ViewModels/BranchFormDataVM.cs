@@ -12,5 +12,7 @@ namespace mvcReduxLab.ViewModels
         public string Branch_Name { get; set; }
 
         public string Address { get; set; }
+
+        //public DateTime? ModifiedDate { get; set; }
     }
 }

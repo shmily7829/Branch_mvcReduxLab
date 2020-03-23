@@ -1,4 +1,5 @@
 ﻿import { Ks } from 'CommonFF/actions.js'
+//import { getDate } from 'date-fns/esm';
 
 const initialState = {
     //用一個空陣列來存放branch的資料
@@ -14,7 +15,8 @@ const initialState = {
     Address_Dist: '',
     Address_ZIP_code: '',
     Address: '',
-    Email:''
+    Email: ''
+    //ModifiedDate: getDate()
 }
 
 export default function branchReducer(state = initialState, action) {

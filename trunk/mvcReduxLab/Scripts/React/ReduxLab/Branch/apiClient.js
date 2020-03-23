@@ -9,10 +9,10 @@ export default {
         const url = '/ReduxLab/Branch/QryDataList'
         return axios.post(url, args)
     },
-    //DelFormData: (formData) => {
-    //    const url = '/ReduxLab/Branch/DelFormData'
-    //    return axios.post(url, formData)
-    //}
+    DelFormData: (formData) => {
+        const url = '/ReduxLab/Branch/DelFormData'
+        return axios.post(url, formData)
+    }
 }
 
 //export const a = {

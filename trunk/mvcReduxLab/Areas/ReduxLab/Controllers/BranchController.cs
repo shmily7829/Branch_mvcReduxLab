@@ -101,7 +101,8 @@ namespace mvcReduxLab.Areas.ReduxLab.Controllers
                             Address_Dist = "信義區",
                             Address_ZIP_code = "123",
                             Address = formData.Address,
-                            Email = "123@gmail.com"
+                            Email = "123@gmail.com",
+                            //ModifiedDate = formData.ModifiedDate
                         };
 
                         ctx.Branch.Add(newInfo);
@@ -119,64 +120,54 @@ namespace mvcReduxLab.Areas.ReduxLab.Controllers
             }
         }
 
-        //[HttpPost]
-        //public ActionResult DelFormData(BranchFormDataVM formData)
-        //{
-        //    try
-        //    {
-        //        if (!ModelState.IsValid)
-        //        {
-        //            Response.StatusCode = 400;
-        //            return Json(ErrorMessageVM.CHECK_DATA_FAIL);
-        //        }
+        [HttpPost]
+        public ActionResult DelFormData(BranchFormDataVM formData)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    Response.StatusCode = 400;
+                    return Json(ErrorMessageVM.CHECK_DATA_FAIL);
+                }
 
-        //        using (var ctx = new ReactPracticeEntities()) //context
-        //        using (var txn = ctx.Database.BeginTransaction()) //啟動交易 txn == Transaction
-        //        {
-        //            //## 若已存在則刪除，不存在則顯示無該筆資料訊息
-        //            //依照P KEY找資料
-        //            var info = ctx.Branch.Find("1000", formData.Branch_ID);
-        //            if (info != null)
-        //            {
-        //                //# 已存在則刪除
-        //                info.Branch_Name = formData.Branch_Name;
-        //                info.Address = formData.Address;
+                using (var ctx = new ReactPracticeEntities()) //context
+                using (var txn = ctx.Database.BeginTransaction()) //啟動交易 txn == Transaction
+                {
+                    //## 若已存在則刪除，不存在則顯示無該筆資料訊息
+                    //依照P KEY找資料
+                    var info = ctx.Branch.Find("1000", formData.Branch_ID);
+                    if (info != null)
+                    {
+                        //# 已存在則刪除
+                        info.Branch_Name = formData.Branch_Name;
+                        info.Address = formData.Address;
 
-        //                ctx.SaveChanges();
-        //                txn.Commit();
-        //            }
-        //            else
-        //            {
-        //                //# 不存在則顯示無資料訊息
-        //                Branch newInfo = new Branch()
-        //                {
-        //                    Channel_ID = "1000",
-        //                    Branch_Type = "1",
-        //                    Branch_ID = formData.Branch_ID,
-        //                    Branch_Name = formData.Branch_Name,
-        //                    Supervisor = "ABC",
-        //                    Contact = "QQQ",
-        //                    Phone = "0987654321",
-        //                    Address_City = "台北市",
-        //                    Address_Dist = "信義區",
-        //                    Address_ZIP_code = "123",
-        //                    Address = formData.Address,
-        //                    Email = "123@gmail.com"
-        //                };
+                        ctx.Branch.Remove(info);
+                        ctx.SaveChanges();
+                        txn.Commit();
+                    }
+                    else
+                    {
+                        //# 不存在則顯示無資料訊息
+                        Branch newInfo = new Branch()
+                        {
+    
+                        };
 
-        //                ctx.Branch.Add(newInfo);
-        //                ctx.SaveChanges();
-        //                txn.Commit();
-        //            }
-        //        }
+                        ctx.Branch.Add(newInfo);
+                        ctx.SaveChanges();
+                        txn.Commit();
+                    }
+                }
 
-        //        return Json(ErrorMessageVM.SUCCESS);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Response.StatusCode = 500;
-        //        return Json(new ErrorMessageVM(ex.Message));
-        //    }
-        //}
+                return Json(ErrorMessageVM.SUCCESS);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new ErrorMessageVM(ex.Message));
+            }
+        }
     }
 }
