@@ -52,6 +52,7 @@ class Query extends Component {
                 <div className="container">
                     <button type="button" className="btn btn-primary btn-lg m-1" onClick={this.handleSaveFormData}>新增</button>
                     <button type="button" className="btn btn-warning btn-lg m-1" onClick={this.handleLoadFormData}>查詢</button>
+                    <button type="button" className="btn btn-warning btn-lg m-1" onClick={this.handleDeleteFormData}>刪除</button>
                 </div>
             </Container>
 
@@ -109,6 +110,21 @@ class Query extends Component {
             console.log('LoadFormData fail!', { xhr })
         })
     }
+
+    //handleDelFormData() {
+    //    const { formData } = this.props
+    //    console.log('handleDelFormData', { formData })
+    //    //this.props.setBlocking(true)
+    //    apiClient.DelFormData(formData).then((resp) => {
+    //        console.log('DelFormData success', { resp })
+    //        swal.fire('DelFormData success', 'success')
+    //    }).catch((xhr) => {
+    //        console.log('DelFormData fail!', { xhr })
+    //        swal.fire('DelFormData fail!')
+    //    }).finally(() => {
+    //        //this.props.setBlocking(false)
+    //    })
+    //}
 }
 
 //從store取資料回來
