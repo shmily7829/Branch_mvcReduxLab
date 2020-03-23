@@ -3,18 +3,18 @@
 const initialState = {
     //用一個空陣列來存放branch的資料
     dataList: [],
-    //Branch_ID: '',
-    //Branch_Type: '',
-    //Branch_Name: '',
-    //Supervisor: '',
-    //Contact: '',
-    //Phone: '',
-    //Fax: '',
-    //Address_City: '',
-    //Address_Dist: '',
-    //Address_ZIP_code: '',
-    //Address: '',
-    //Email:''
+    Branch_ID: '',
+    Branch_Type: '',
+    Branch_Name: '',
+    Supervisor: '',
+    Contact: '',
+    Phone: '',
+    Fax: '',
+    Address_City: '',
+    Address_Dist: '',
+    Address_ZIP_code: '',
+    Address: '',
+    Email:''
 }
 
 export default function branchReducer(state = initialState, action) {

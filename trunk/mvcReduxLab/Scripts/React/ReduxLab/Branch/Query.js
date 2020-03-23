@@ -17,30 +17,32 @@ class Query extends Component {
         }
         //this.handleInputChange = this.handleInputChange.bind(this)
         this.handleLoadFormData = this.handleLoadFormData.bind(this)
+        this.handleSaveFormData = this.handleSaveFormData.bind(this)
     }
 
     render() {
-        const { helloInfo, handleValueChange, branchInfo } = this.props
+        const { handleValueChange, branchInfo } = this.props
+
         return (
 
             <Container className="mt-2 bg-secondary text-white rounded">
                 <h2>§ 帳號基本資料</h2>
                 <Row>
                     <Col md={4}>
-                        <TextField label="分行代號" name="name"
-                            value={helloInfo.name || ''}
+                        <TextField label="分行代號" name="Branch_ID"
+                            value={branchInfo.Branch_ID || ''}
                             onChange={handleValueChange}
                         />
                     </Col>
                     <Col md={4}>
-                        <TextField label="分行名稱" name="email" type="email"
-                            value={helloInfo.email || ''}
+                        <TextField label="分行名稱" name="Branch_Name" 
+                            value={branchInfo.Branch_Name || ''}
                             onChange={handleValueChange}
                         />
                     </Col>
                     <Col md={4}>
-                        <TextField label="地址" name="mobilePhone" type="tel"
-                            value={helloInfo.Address || ''}
+                        <TextField label="地址" name="Address"
+                            value={branchInfo.Address || ''}
                             onChange={handleValueChange}
                         />
                     </Col>
@@ -79,21 +81,20 @@ class Query extends Component {
     //    //})
     //}
 
-    //handleSaveFormData() {
-    //    const { formData } = this.props
-    //    console.log('handleSaveFormData', { formData })
-
-    //    this.props.setBlocking(true)
-    //    apiClient.SaveFormData(formData).then((resp) => {
-    //        console.log('SaveFormData success', { resp })
-    //        swal.fire('SaveFormData success', 'success')
-    //    }).catch((xhr) => {
-    //        console.log('SaveFormData fail!', { xhr })
-    //        swal.fire('SaveFormData fail!')
-    //    }).finally(() => {
-    //        this.props.setBlocking(false)
-    //    })
-    //}
+    handleSaveFormData() {
+        const { formData } = this.props
+        console.log('handleSaveFormData', { formData })
+        //this.props.setBlocking(true)
+        apiClient.SaveFormData(formData).then((resp) => {
+            console.log('SaveFormData success', { resp })
+            swal.fire('SaveFormData success', 'success')
+        }).catch((xhr) => {
+            console.log('SaveFormData fail!', { xhr })
+            swal.fire('SaveFormData fail!')
+        }).finally(() => {
+            //this.props.setBlocking(false)
+        })
+    }
 
     handleLoadFormData() {
         const args = { title: 'ACB', isDone: true }
@@ -113,14 +114,18 @@ class Query extends Component {
 //從store取資料回來
 const mapStateToProps = (state, ownProps) => {
     return {
-        helloInfo: state.helloInfo
-
+        branchInfo: state.branchInfo,
+        formData: {
+            Branch_ID: state.branchInfo.Branch_ID,
+            Branch_Name: state.branchInfo.Branch_Name,
+            Address: state.branchInfo.Address
+        }
     }
 }
 
 //把資料存到store
 const mapDispatchToProps = (dispatch, ownProps) => {
-    const targetReducer = 'helloReducer'
+    const targetReducer = 'branchReducer'
     return {
         dispatch,
         handleValueChange: (name, value) => {

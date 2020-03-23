@@ -29,7 +29,7 @@ class List extends Component {
                     </thead>
                     <tbody>
                         {branchInfo.dataList.map((item, index) =>
-                            <tr key={`${item}`} style={{ border: '1px solid #000000', padding: '10px' }}>
+                            <tr key={index} style={{ border: '1px solid #000000', padding: '10px' }}>
                                 <td>{item.Branch_ID}</td>
                                 <td>{item.Branch_Name}</td>
                                 <td>{item.Address}</td>

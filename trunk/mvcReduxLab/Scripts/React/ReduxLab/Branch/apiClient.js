@@ -3,7 +3,7 @@
 export default {
     SaveFormData: (formData) => {
         const url = '/ReduxLab/Branch/SaveFormData'
-        return axios.post(url, args)
+        return axios.post(url, formData)
     },
     QryDataList: (args) => {
         const url = '/ReduxLab/Branch/QryDataList'

@@ -16,7 +16,7 @@ namespace mvcReduxLab
     public partial class ReactPracticeEntities : DbContext
     {
         public ReactPracticeEntities()
-            : base("name=BranchEntities")
+            : base("name=ReactPracticeEntities")
         {
         }
     
