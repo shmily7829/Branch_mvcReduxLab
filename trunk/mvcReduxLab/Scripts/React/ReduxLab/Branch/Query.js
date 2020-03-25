@@ -6,7 +6,8 @@ import TextField from 'CommonMA/FormInputFields/TextField.js'
 //import { default as apiClient } from './apiClient.js'
 //import { a } from './apiClient.js'
 import apiClient from './apiClient.js'
-
+import XLSX from "xlsx";
+import InputFiles from "react-input-files";
 
 class Query extends Component {
     constructor(props) {
@@ -54,7 +55,10 @@ class Query extends Component {
                     <button type="button" className="btn btn-primary btn-lg m-1" onClick={this.handleSaveFormData}>新增</button>
                     <button type="button" className="btn btn-warning btn-lg m-1" onClick={this.handleLoadFormData}>查詢</button>
                     <button type="button" className="btn btn-warning btn-lg m-1" onClick={this.handleDelFormData}>刪除</button>
-                </div>
+                    <InputFiles accept=".xlsx, .xls" onChange={this.onImportExcel}>
+                        <button className="btn btn-info">Upload</button>
+                    </InputFiles>
+                 </div>
             </Container>
 
         )
@@ -83,6 +87,7 @@ class Query extends Component {
     //    //})
     //}
 
+    //新增
     handleSaveFormData() {
         const { formData } = this.props
         console.log('handleSaveFormData', { formData })
@@ -98,6 +103,7 @@ class Query extends Component {
         })
     }
 
+    //查詢
     handleLoadFormData() {
         const args = { title: 'ACB', isDone: true }
         apiClient.QryDataList(args).then((resp) => {
@@ -112,6 +118,7 @@ class Query extends Component {
         })
     }
 
+    //刪除
     handleDelFormData() {
         const { formData } = this.props
         console.log('handleDelFormData', { formData })
@@ -126,6 +133,52 @@ class Query extends Component {
             //this.props.setBlocking(false)
         })
     }
+
+    //上傳EXCEL
+    onImportExcel = files => {
+        // 獲取上傳的文件對象
+        //const { files } = file.target; // 通過FileReader對象讀取文件
+        const fileReader = new FileReader();
+        //console.log(fileReader);
+        for (let index = 0; index < files.length; index++) {
+            fileReader.name = files[index].name;
+        }
+        fileReader.onload = event => {
+            try {
+                // 判斷上傳檔案的類型 可接受的附檔名
+                const validExts = new Array(".xlsx", ".xls");
+                const fileExt = event.target.name;
+
+                if (fileExt == null) {
+                    throw "檔案為空值";
+                }
+
+                const fileExtlastof = fileExt.substring(fileExt.lastIndexOf("."));
+                if (validExts.indexOf(fileExtlastof) == -1) {
+                    throw "檔案類型錯誤，可接受的副檔名有：" + validExts.toString();
+                }
+
+                const { result } = event.target; // 以二進制流方式讀取得到整份excel表格對象
+                const workbook = XLSX.read(result, { type: "binary" });
+                let data = []; // 存儲獲取到的數據 // 遍歷每張工作表進行讀取（這裡默認只讀取第一張表）
+                for (const sheet in workbook.Sheets) {
+                    if (workbook.Sheets.hasOwnProperty(sheet)) {
+                        // 利用 sheet_to_json 方法將 excel 轉成 json 數據
+                        data = data.concat(
+                            XLSX.utils.sheet_to_json(workbook.Sheets[sheet])
+                        ); // break; // 如果只取第一張表，就取消註釋這行
+                    }
+                }
+                console.log(data);
+            } catch (e) {
+                // 這裡可以拋出文件類型錯誤不正確的相關提示
+                alert(e);
+                //console.log("文件類型不正確");
+                return;
+            }
+        }; // 以二進制方式打開文件
+        fileReader.readAsBinaryString(files[0]);
+    };
 }
 
 //從store取資料回來

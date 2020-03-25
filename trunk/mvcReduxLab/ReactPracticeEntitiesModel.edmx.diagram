@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="94c786f5b7044cb6acc8ce79c01eb25e" Name="Diagram1">
+      <Diagram DiagramId="414835217ba945dd941d96aace41fe4e" Name="Diagram1">
         <EntityTypeShape EntityType="ReactPracticeModel.Branch" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ReactPracticeModel.CHANNEL" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ReactPracticeModel.Channel_VS_Product" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
