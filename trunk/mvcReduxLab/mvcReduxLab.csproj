@@ -713,6 +713,7 @@
     <Content Include="Scripts\React\ReduxLab\Branch\apiClient.js" />
     <Content Include="Scripts\React\ReduxLab\Branch\List.js" />
     <Content Include="Scripts\React\ReduxLab\Branch\Query.js" />
+    <Content Include="Scripts\React\ReduxLab\Branch\reducers\fileReducer.js" />
     <Content Include="Scripts\React\ReduxLab\Branch\reducers\branchReducer.js" />
     <Content Include="Scripts\React\ReduxLab\Demo2\app.js" />
     <Content Include="Scripts\React\ReduxLab\Demo2\AppForm.js" />

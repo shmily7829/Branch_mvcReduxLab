@@ -8,8 +8,8 @@ module.exports = [
 		//reactlabhashrouter:'./ReactLab/HashRouter/app.js',
 		//reactlabqrcode:'./ReactLab/QRCode/app.js',
 		//reduxlabdemo2:'./ReduxLab/Demo2/app.js',
-		reduxlabaccountapp:'./ReduxLab/AccountApp/app.js',
-		reduxlabreduxhello:'./ReduxLab/ReduxHello/app.js',
+		//reduxlabaccountapp:'./ReduxLab/AccountApp/app.js',
+		//reduxlabreduxhello:'./ReduxLab/ReduxHello/app.js',
 		reduxlabbranch:'./ReduxLab/Branch/app.js',
 	},
     output: {

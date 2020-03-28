@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +14,62 @@ namespace mvcReduxLab.Areas.ReduxLab.Controllers
         public ActionResult Default()
         {
             return View();
+        }
+
+        public ActionResult UploadOneFile()
+        {
+            try
+            {
+                //if (!ModelState.IsValid)
+                //if (Request.Files.Count <= 0)
+                //{
+                //    string message = "資料格式不合法！";
+                //    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                //    return Content(message, "text/plain", Encoding.UTF8);
+                //}
+
+                // 建立目的地目錄 --- uploadDir\<YYYY>\<MM>\
+                //DirectoryInfo dir = new DirectoryInfo(string.Format("C:\\UploadFiles\\{0:yyyyMM}", DateTime.Now));
+                DirectoryInfo dir = new DirectoryInfo("C:\\UploadFiles");
+                if (!dir.Exists) dir.Create();
+
+                // 取得上傳檔案
+                var uploadFile = Request.Files[0];
+
+                // 限制大小<10mb
+                //var fileSize = uploadFile.ContentLength;
+                //if ((fileSize / 1048576.0) > 10)
+                //{
+                //    return Json(LastErrMsg.Error("檔案大小不可大於10MB。"));
+                //}
+
+                // 取其它參數
+                string note = Request.Form["note"];
+
+                // target filepath
+                string uploadFilename = Path.GetFileName(uploadFile.FileName); // 注意：Chrome與IE11上傳檔名不同格式，需用此函式取檔名以統一格式
+                FileInfo targetFile = new FileInfo(dir.FullName + "\\" + uploadFilename);
+                uploadFile.SaveAs(targetFile.FullName);
+
+                ///
+                /// 正式版使用 Guid 操作檔案下載與刪除
+                /// 並存入 File Table
+                /// 
+
+                // success
+                var result = new
+                {
+                    fileInfo = targetFile.Name
+                };
+
+                return Json(result); // result
+            }
+            catch (Exception ex)
+            {
+                //Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                //return Content(ex.Message, "text/plain", Encoding.UTF8);
+                return Content(ex.Message);
+            }
         }
 
         [HttpPost]
